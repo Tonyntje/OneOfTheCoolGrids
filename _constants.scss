@@ -1,0 +1,19 @@
+$basicspacing: 1.5rem;
+
+@mixin sizeAndColorAndCenter($size, $color, $margin: 0) {
+  font-size: $size;
+  color: $color;
+  text-align: center;
+  font-weight: 500;
+  margin: $margin;
+}
+@mixin button() {
+  background: #e2a12b;
+  border-radius: 50px;
+  font-size: 12px;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 12px;
+  padding: 4px 15px;
+  display: inline-block;
+}

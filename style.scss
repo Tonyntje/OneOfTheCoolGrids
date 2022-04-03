@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+* {
+  font-family: Manrope;
+  margin: 0;
+  padding: 0;
+}
+a,
+i {
+  cursor: pointer;
+}
+
+@import "./constants";
+
+body {
+  background-color: #c3cfe2;
+}
+
+main {
+  display: grid;
+  gap: 1.5rem 1.5rem;
+  padding: $basicspacing;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  color: #333;
+  height: 425px;
+  position: relative;
+  padding-bottom: 6rem;
+  background: white;
+  .footer {
+    z-index: 1;
+    background-color: rgb(104, 109, 224);
+    padding: $basicspacing;
+    height: max-content;
+    bottom: 0;
+    position: absolute;
+    transition: height 0.1s ease-out 0.2s;
+    .onhover {
+      img {
+        border-radius: 100%;
+        max-width: 30%;
+        z-index: 9;
+        position: relative;
+        top: -5.5rem;
+        margin: 0 auto -5.5rem;
+        display: block;
+        border: white solid 5px;
+        bottom: 0;
+      }
+    }
+    .funnybg {
+      width: calc(100% + 6rem);
+      height: 470px;
+      background: #f0f8ff21;
+      border-radius: 100%;
+      position: absolute;
+      left: -3rem;
+      top: 20px;
+      transform: scale(0);
+      transition: transform 0.1s ease-out;
+    }
+    h2 {
+      @include sizeAndColorAndCenter(18px, white, 10px 0 0 0);
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+    }
+    h4 {
+      @include sizeAndColorAndCenter(14px, #b8bbfb);
+    }
+    p {
+      @include sizeAndColorAndCenter(14px, #151744, 0 0 10px 0);
+      height: 0px;
+      line-height: 20px;
+      opacity: 0;
+      position: relative;
+      top: -10px;
+      padding: 0 15px 0;
+      overflow: hidden;
+      transition: height 0.1s ease-out 0.1s, opacity 0.2s ease-out 0.3s, padding 0.2s ease-out 0.3s;
+      a {
+        @include button();
+        &:after {
+          content: "\f105";
+          font-family: fontAwesome;
+          position: relative;
+          margin-left: 8px;
+          top: 1px;
+          font-size: 13px;
+          color: #000;
+        }
+      }
+    }
+    .socials-container {
+      height: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      transition: height 0.2s ease-out 0.3s;
+      i {
+        color: white;
+        padding: 5px;
+      }
+    }
+  }
+  .text {
+    padding: 3rem 3rem;
+    font-size: 18px;
+    line-height: 28px;
+    opacity: 1;
+    transition: max-height 0.2s ease-out 0.2s;
+    p {
+      opacity: 1;
+      transition: opacity 0.15s ease-out;
+    }
+  }
+  &:hover .text p {
+    opacity: 0.2;
+  }
+  &:hover .footer {
+    p {
+      height: 160px;
+      opacity: 1;
+      padding: 25px 15px 0px;
+    }
+    .funnybg {
+      transform: scale(1.5);
+    }
+  }
+  &:hover .socials-container {
+    height: 20px;
+  }
+}
+
+@import "./breakpoints";
+
+.socials {
+  position: fixed;
+  right: 0;
+  top: calc(50vh - 102px);
+  z-index: 99;
+  overflow: hidden;
+  .social-media {
+    display: flex;
+    padding: 10px;
+    position: relative;
+    right: calc(-100% + 40px);
+    transition: right 0.3s ease-out;
+    a {
+      color: white;
+      font-size: 15px;
+    }
+    i {
+      width: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      &:before {
+        font-family: fontAwesome;
+        color: white;
+        font-style: normal;
+      }
+    }
+    &:hover {
+      right: 0%;
+    }
+  }
+  .social-media.blog {
+    background-color: #e17b77;
+    .fa-laptop-code::before {
+      content: "\f5fc";
+    }
+  }
+  .social-media.facebook {
+    background-color: #3b5998;
+    .fa-facebook-f::before {
+      content: "\f39e";
+    }
+  }
+  .social-media.twitter {
+    background-color: #00aced;
+    .fa-twitter::before {
+      content: "\f099";
+    }
+  }
+  .social-media.github {
+    background-color: #333;
+    .fa-github::before {
+      content: "\f09b";
+    }
+  }
+
+  .social-media.linkedin {
+    background-color: #007bb6;
+    .fa-linkedin-in::before {
+      content: "\f0e1";
+    }
+  }
+}
